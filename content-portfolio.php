@@ -36,12 +36,11 @@ if ( post_password_required() ) {
 			
 		$args = array(
 			'post_type' => 'portfolio',
-			'posts_per_page' => 16,
+			'posts_per_page' => 9,
 			'paged' => $paged );
 		query_posts( $args );
 	}
 ?>
-<div id="coluna-direita">
 <div id="portfolio"<?php if ( $fullwidth ) { echo ' class="full-width"'; }?>>
 
 	<?php if ( is_tax() ): ?>
@@ -63,10 +62,9 @@ if ( post_password_required() ) {
 		} ?>
 		<div class="<?php echo $classes; ?>">
 			<?php if ( has_post_thumbnail() ) { ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb"><?php the_post_thumbnail( 'galeria' ); ?></a>
+			<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb"><?php the_post_thumbnail( $thumbnail ); ?></a>
 			<?php } ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" class="title-overlay cont"><?php the_title() ?></a>
-
+			<a href="<?php the_permalink() ?>" rel="bookmark" class="title-overlay"><?php the_title() ?></a>
 		</div>
 
 		<?php endwhile; ?>
@@ -75,11 +73,9 @@ if ( post_password_required() ) {
 			
 		<?php else: ?>
 
-			<h2 class="title"><?php _e( 'Sua pesquisa acabou sem resultados.', 'portfoliopress' ) ?></h2>
+			<h2 class="title"><?php _e( 'Sorry, no posts matched your criteria.', 'portfoliopress' ) ?></h2>
 
 	<?php endif; ?>
-</div><!-- #portfolio -->
-</div><!-- #coluna-direita -->
-<?php } ?>
 
-<?php get_footer(); ?>
+</div><!-- #portfolio -->
+<?php } ?>      

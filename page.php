@@ -1,37 +1,31 @@
 <?php
 /**
- * The template for displaying pages
+ * The template for displaying all pages.
  *
- * @package Portfolio Press
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Eleven
+ * @since Twenty Eleven 1.0
  */
 
-get_header(); ?>
+get_header('page'); ?>
 
-	<div id="primary">
-		<div id="content" role="main">
+		<div id="primary">
+			<div id="content" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-					<h1 class="entry-title"><?php the_title(); ?></h1>
-				</header><!-- .entry-header -->
+					<?php get_template_part( 'content', 'page' ); ?>
 
-				<div class="entry-content clearfix">
-					<?php the_content(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfoliopress' ), 'after' => '</div>' ) ); ?>
-					<?php edit_post_link( __( 'Edit', 'portfoliopress' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .entry-content -->
-			</article><!-- #post-<?php the_ID(); ?> -->
-            
-            <?php if ( comments_open() ) {
-            	comments_template( '', true );
-			} ?>
-			
-			<?php endwhile; // end of the loop. ?>
+					<?php comments_template( '', true ); ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+				<?php endwhile; // end of the loop. ?>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+<?php get_footer('simples'); ?>
