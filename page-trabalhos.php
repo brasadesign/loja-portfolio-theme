@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Trabalhos
+ * Template Name: Loja
  *
  * This is for the default archive view of portfolio archives.
  * It can also be used as a page template.
