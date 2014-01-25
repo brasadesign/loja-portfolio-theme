@@ -30,11 +30,11 @@
 	<div id="main-portfolio">
     
     <div id="coluna-esquerda">
-    <div id="logo">
+    <hgroup id="logo">
         <a href="<?php echo network_home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
             <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/logo-brasa.png" alt="<?php echo bloginfo( 'name' ) ?>" />
         </a>
-    </div>
+    </hgroup>
           
     
     <nav id="navigation">
